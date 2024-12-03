@@ -7,14 +7,6 @@ public class WordEntry implements Comparable<WordEntry>{
     private final int row;
     private final int col;
 
-    // this should be changed depending on starting position
-    // should be the TOP-LEFT coordinates of the grid - Daniel
-    private final double startX = 124.0;
-    private final double startY = 103.5;
-
-    //this should be changed depending on the distances between letters
-    private final double varX = 13.83;
-    private final double varY = 13.83;
 
     public WordEntry(String word, ArrayList<int[]> directions,int row, int col){
         this.word = word;
@@ -29,7 +21,7 @@ public class WordEntry implements Comparable<WordEntry>{
         // this should be changed depending on starting position
         // should be the TOP-LEFT coordinates of the grid - Daniel
         double startX = 124.0;
-        double startY = 27.5;
+        double startY = 103.5;
 
         //this should be changed depending on the distances between letters
         double varX = 13.83;
