@@ -42,7 +42,7 @@ public class Main {
 
         Collections.sort(wordlist);
 
-        StringBuilder gCodeOutput = new StringBuilder("G28\nM220 S1500\nM204 P4500 T4500\nM205 X30.0 Y30.0; Code start\n");
+        StringBuilder gCodeOutput = new StringBuilder();
         for(WordEntry sampleWord : wordlist){
             gCodeOutput.append(sampleWord.toGCode());
         }
