@@ -8,6 +8,10 @@ public class WordEntry implements Comparable<WordEntry>{
     private final int col;
 
 
+    //this should be changed depending on the distances between letters
+    private final double varX = 13.83;
+    private final double varY = 13.83;
+
     public WordEntry(String word, ArrayList<int[]> directions,int row, int col){
         this.word = word;
         this.length = word.length();
@@ -21,7 +25,7 @@ public class WordEntry implements Comparable<WordEntry>{
         // this should be changed depending on starting position
         // should be the TOP-LEFT coordinates of the grid - Daniel
         double startX = 124.0;
-        double startY = 103.5;
+        double startY = 103.0;
 
         //this should be changed depending on the distances between letters
         double varX = 13.83;
@@ -29,12 +33,12 @@ public class WordEntry implements Comparable<WordEntry>{
 
         // changed - Daniel
         StringBuilder gCodeStr = new StringBuilder(
-                "G0 X" + (startX + varX * col) + " Y" + (startY - varY * row) + " ; " +  word + "\n" +
-                        "G0 X" + (startX + varX * col) + " Y"  + (startY - varY * row) + " Z0.0" + " ; " +  word + "\n");
+                "G0 X" + (startY + varY * col) + " Y" + (startX - varX * row) + " ; " +  word + "\n" +
+                        "G0 X" + (startY + varY * col) + " Y"  + (startX - varX * row) + " Z0.0" + " ; " +  word + "\n");
 
         for(int[] direction : directions){
-            String temp = "G0 X" + (startX + varX * direction[0]) +
-                    " Y" + (startY - varY * direction[1]) + "\n";
+            String temp = "G0 X" + (startY + varY * direction[1]) +
+                    " Y" + (startX - varX * direction[0]) + "\n";
             gCodeStr.append(temp);
         }
 
@@ -52,7 +56,7 @@ public class WordEntry implements Comparable<WordEntry>{
         return Double.compare(o.getLength(), this.length);
     }
 
-    public String getWord(){return word;}
-
     public String toString(){return word + " "+ row + " " + col + " " + directions;}
+
+    public String getWord(){return word;}
 }
