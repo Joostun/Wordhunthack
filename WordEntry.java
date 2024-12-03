@@ -37,12 +37,12 @@ public class WordEntry implements Comparable<WordEntry>{
 
         // changed - Daniel
         StringBuilder gCodeStr = new StringBuilder(
-                "G0 X" + (startY + varY * col) + " Y" + (startX - varX * row) + " ; " +  word + "\n" +
-                        "G0 X" + (startY + varY * col) + " Y"  + (startX - varX * row) + " Z0.0" + " ; " +  word + "\n");
+                "G0 X" + (startX + varX * col) + " Y" + (startY - varY * row) + " ; " +  word + "\n" +
+                        "G0 X" + (startX + varX * col) + " Y"  + (startY - varY * row) + " Z0.0" + " ; " +  word + "\n");
 
         for(int[] direction : directions){
-            String temp = "G0 X" + (startY + varY * direction[1]) +
-                    " Y" + (startX - varX * direction[0]) + "\n";
+            String temp = "G0 X" + (startX + varX * direction[0]) +
+                    " Y" + (startY - varY * direction[1]) + "\n";
             gCodeStr.append(temp);
         }
 

@@ -14,7 +14,7 @@ def preview_and_capture():
         # Capture a frame from the camera
         frame = picam2.capture_array()
         # Display the frame in an OpenCV window
-        cv2.imshow("Camera Preview", frame)
+        cv2.imshow("Camera Preview", fr ame)
         # Wait for a key press
         key = cv2.waitKey(1) & 0xFF
         if key == ord('\r'):  # Press Enter to capture
