@@ -24,8 +24,8 @@ public class WordEntry implements Comparable<WordEntry>{
 
         // this should be changed depending on starting position
         // should be the TOP-LEFT coordinates of the grid - Daniel
-        double startX = 124.0;
-        double startY = 103.0;
+        double startX = 103.0;
+        double startY = 124.0;
 
         //this should be changed depending on the distances between letters
         double varX = 13.83;
